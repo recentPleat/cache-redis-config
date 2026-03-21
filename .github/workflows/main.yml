@@ -1,0 +1,17 @@
+name: Cache Redis Config
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Print environment variables
+        run: echo ${{ secrets.REDIS_HOST }} ${{ secrets.REDIS_PORT }} ${{ secrets.REDIS_PASSWORD }}
